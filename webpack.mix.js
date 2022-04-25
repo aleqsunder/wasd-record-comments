@@ -1,4 +1,4 @@
-const path = "./dist/index.js"
+const path = "./dist/index.user.js"
 const mix = require('laravel-mix')
 mix.js('src/index.js', path).vue()
 
