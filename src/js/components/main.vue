@@ -44,12 +44,14 @@ export default {
         message.info.color = this.colors[message.info.user_id]
         return message
       })
-      this.messages = messages
 
-      setTimeout(() => {
-        const wrap = document.querySelector('.chat-container__wrap .block-wrapper')
-        wrap.scrollTop = wrap.scrollHeight
-      })
+      this.messages = messages
+      if (this.messages?.length > 0) {
+        setTimeout(() => {
+          const wrap = document.querySelector('.chat-container__wrap .block-wrapper')
+          wrap.scrollTop = wrap.scrollHeight
+        })
+      }
     },
 
     setLoading({detail}) {
