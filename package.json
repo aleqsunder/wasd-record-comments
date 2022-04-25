@@ -1,0 +1,14 @@
+{
+  "name": "wasd_record_comments",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "laravel-mix": "^6.0.43",
+    "node-sass": "^7.0.1",
+    "sass-loader": "^12.6.0",
+    "vue": "^3.2.33"
+  },
+  "devDependencies": {
+    "vue-loader": "^17.0.0"
+  }
+}
