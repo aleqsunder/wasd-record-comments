@@ -3,7 +3,6 @@
 import './css/index.scss'
 import MessagesObserver from "./js/MessagesObserver"
 import TimeMutation from "./js/TimeMutation"
-import MessagesRender from "./js/MessagesRender"
 import { customEvent, log } from "./js/helpers"
 
 (function (history) {
@@ -63,11 +62,11 @@ import { customEvent, log } from "./js/helpers"
         const record = GET.record
         log('Got video: ' + record)
         
+        timeMutation.observeChannelChat()
         messagesObserver.getMessagesByStream(record).then(() => {
-            new MessagesRender()
             customEvent({isLoading: false}, 'MessagesObserver:loadingProgress')
             messagesObserver.video = record
-            timeMutation.start()
+            timeMutation.observeChannelWrapper()
         })
     }
     

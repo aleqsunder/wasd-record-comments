@@ -49,7 +49,9 @@ export default {
       if (this.messages?.length > 0) {
         setTimeout(() => {
           const wrap = document.querySelector('.chat-container__wrap .block-wrapper')
-          wrap.scrollTop = wrap.scrollHeight
+          if (wrap) {
+            wrap.scrollTop = wrap.scrollHeight
+          }
         })
       }
     },

@@ -1,5 +1,6 @@
-import { GOT_CHANNEL_WRAPPER, GOT_SEEK_TIME_CONTAINER } from "./constants"
+import { GOT_CHANNEL_WRAPPER, GOT_CHAT_CONTAINER, GOT_SEEK_TIME_CONTAINER } from "./constants"
 import { customEvent } from "./helpers"
+import MessagesRender from "./MessagesRender"
 
 export default class TimeMutation {
     constructor () {
@@ -14,10 +15,6 @@ export default class TimeMutation {
     
     set available(bool) {
         this.isAvailable = bool
-    }
-    
-    start() {
-        this.observeChannelWrapper()
     }
     
     listen(event) {
@@ -77,6 +74,18 @@ export default class TimeMutation {
             if (detail.target.classList.contains('content-wrapper__info')) {
                 observer.disconnect()
                 customEvent(detail)
+                return true
+            }
+        })
+    }
+    
+    observeChannelChat() {
+        this.defaultObserve(GOT_CHAT_CONTAINER, 'block__messages__item', document, 'body', (observer, detail) => {
+            if (detail.target.classList.contains('block__messages__item')) {
+                observer.disconnect()
+                setTimeout(() => {
+                    new MessagesRender()
+                })
                 return true
             }
         })
