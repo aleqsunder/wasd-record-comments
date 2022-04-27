@@ -5,6 +5,8 @@ import MessagesObserver from "./js/MessagesObserver"
 import TimeMutation from "./js/TimeMutation"
 import { customEvent, log } from "./js/helpers"
 
+window.currentVersion = '0.1.5';
+
 (function (history) {
     const replaceState = history.replaceState
     history.replaceState = function(state) {

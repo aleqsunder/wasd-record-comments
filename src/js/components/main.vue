@@ -6,7 +6,10 @@
       </TransitionGroup>
     </div>
   </template>
-  <div class="text-center" v-else v-text="loadingProgress"/>
+  <div class="block-wrapper__loading" v-else>
+    <span class="block-wrapper__loading-title">Загрузка</span>
+    <span class="block-wrapper__loading-content" v-text="loadingProgress"/>
+  </div>
 </template>
 
 <script>
@@ -29,7 +32,7 @@ export default {
 
   methods: {
     randomHex() {
-      return Math.random() * 255 ^ 0
+      return 50 + (Math.random() * 205 ^ 0)
     },
 
     randomColor() {
